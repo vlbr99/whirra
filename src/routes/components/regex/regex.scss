@@ -1,0 +1,31 @@
+.regex_wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 650px;
+  p {
+    color: gray;
+  }
+  h1 {
+    color: white;
+  }
+  div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(22, 22, 22);
+    padding: 20px;
+    border-radius: 10px;
+    p {
+      color: white;
+    }
+    span {
+      color: gray;
+    }
+  }
+}

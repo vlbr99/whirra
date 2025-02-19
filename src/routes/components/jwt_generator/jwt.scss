@@ -1,0 +1,49 @@
+.jwt_wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 650px;
+  h1 {
+    color: white;
+  }
+  p {
+    color: gray;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      border-radius: 40px;
+    }
+  }
+  .size_wrapper {
+    label {
+      color: white;
+    }
+
+    select {
+      width: 100px;
+      padding: 10px;
+      border-radius: 50px;
+      color: black;
+      background-color: white;
+      border: 0;
+    }
+  }
+  .break-text {
+    width: 400px; /* Ograničava širinu da bi se tekst prelomio */
+    overflow-x: scroll;
+    color: white;
+  }
+}
