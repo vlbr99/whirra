@@ -27,21 +27,14 @@
   };
   let code = $state(`
 <script>
-  import { fade, fly } from "svelte/transition";
-  let { isOpen, title, message, onConfirm, onCancel } = $props();
+    let { isOpen, title, message, onConfirm, onCancel, children } = $props();
 <\/script>
 
 {#if isOpen}
   <div
-    class="backdrop"
-    in:fade={{ duration: 300 }}
-    out:fade={{ duration: 300 }}
-  >
+    class="backdrop">
     <div
-      class="dialog"
-      in:fade={{ duration: 300 }}
-      out:fade={{ duration: 300 }}
-    >
+      class="dialog">
       <h2>{title}</h2>
       <p>{message}</p>
       <div class="actions">
@@ -143,7 +136,9 @@ let showDialog = $state(false);
       handleCancel();
       showDialog = false;
     }}
-  />
+  >
+    <p>some children content</p>
+  </Alert>
 {/if}
 <style>
   button {
@@ -192,7 +187,9 @@ let showDialog = $state(false);
       handleCancel();
       showDialog = false;
     }}
-  />
+  >
+    <p>some children content</p>
+  </Alert>
 {/if}
 
 <style>

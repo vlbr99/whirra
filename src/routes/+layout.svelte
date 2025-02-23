@@ -37,11 +37,11 @@
     font-family: "Geist Variable", sans-serif;
   }
   :global(*::selection) {
-    background-color: white !important;
-    color: black;
+    background-color: var(--secondary_color_dark) !important;
+    color: var(--primary_color_dark);
   }
   :global(body) {
-    background-color: #000000;
+    background-color: var(--primary_color_dark);
     overflow-x: hidden;
   }
   :global(html) {

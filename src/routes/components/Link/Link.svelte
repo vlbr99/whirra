@@ -13,9 +13,10 @@
   };
   let code = $state(`
   <script>
-       let { a_href, a_text } = $props();
+    let { href, text, target, className } = $props();
+      export { className as class };
   <\/script>
-  <a href={a_href}>{a_text}</a>
+  <a {href} {target} class={className}>{text}</a>
   <style>
     a {
       color: var(--secondary_color_dark);
@@ -27,7 +28,7 @@
   <\/style>
 `);
   let code_2 = $state(
-    `<Link a_text="example.com" a_href="https://example.com" />`
+    `<Link text="example.com" href="https://example.com" target="_blank"/>`
   );
 </script>
 
@@ -38,7 +39,7 @@
     navigate between pages, sections, or external resources. Links improve
     accessibility and usability by providing clear pathways to relevant content.
   </p>
-  <a href="https://example.com">https://example.com</a>
+  <a href="https://example.com" target="_blank">example.com</a>
   <!-- ZA FRAMEWORK JE U KOMENTARU -->
   <!-- <a href={a_href}>{a_text}</a> -->
   <div class="code_wrapper">

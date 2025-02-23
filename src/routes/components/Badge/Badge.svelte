@@ -12,12 +12,13 @@
   };
   import typescript from "svelte-highlight/languages/typescript";
   let code = $state(`<script>
-let badge_text = $props();
+ let { badge_text, className } = $props();
+ export { className as class };
 <\/script>
-<span class="badge">{badge_text}</span>
+<span class="badge {className}">{badge_text}</span>
 <style>
- .badge {
-    background-color: var(--primary_bg_dark);
+  .badge {
+    background-color: var(--secondary_color_dark);
     color: var(--primary_color_dark);
     font-size: 0.9rem;
     padding: 4px;
@@ -26,7 +27,6 @@ let badge_text = $props();
 <\/style>
 `);
   let co = $state(`<Badge badge_text='badge'/>`);
-  //DODATI CSS VARIJABLE I TO JE TO
 </script>
 
 <div class="badge_wrapper">

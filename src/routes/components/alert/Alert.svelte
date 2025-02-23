@@ -1,21 +1,13 @@
 <script>
-  import { fade, fly } from "svelte/transition";
-  let { isOpen, title, message, onConfirm, onCancel } = $props();
+  let { isOpen, title, message, onConfirm, onCancel, children } = $props();
 </script>
 
 {#if isOpen}
-  <div
-    class="backdrop"
-    in:fade={{ duration: 300 }}
-    out:fade={{ duration: 300 }}
-  >
-    <div
-      class="dialog"
-      in:fade={{ duration: 300 }}
-      out:fade={{ duration: 300 }}
-    >
+  <div class="backdrop">
+    <div class="dialog">
       <h2>{title}</h2>
       <p>{message}</p>
+      {@render children?.()}
       <div class="actions">
         <button
           onclick={() => {

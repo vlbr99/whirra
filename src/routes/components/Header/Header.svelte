@@ -29,7 +29,7 @@
     position: sticky;
     top: 0;
     width: 100%;
-    background-color: var(--touch_color_dark);
+    background-color: var(--primary_color_dark);
     z-index: 1;
     text-decoration: none;
     list-style-type: none !important;
@@ -179,7 +179,7 @@
     position: sticky;
     top: 0;
     width: 100%;
-    background-color: var(--touch_color_dark);
+    background-color: var(--primary_color_dark);
     z-index: 1;
     text-decoration: none;
     list-style-type: none !important;

@@ -119,7 +119,7 @@
             selectComponent("fonts");
           }}
         >
-          Fonts <span>new</span>
+          Fonts
         </button>
       </li>
       <li>
@@ -128,7 +128,7 @@
             selectComponent("icons");
           }}
         >
-          Icons <span>new</span>
+          Icons
         </button>
       </li>
     </ul>
@@ -154,7 +154,7 @@
             selectComponent("badge");
           }}
         >
-          Badge <span>new</span>
+          Badge
         </button>
       </li>
       <li>

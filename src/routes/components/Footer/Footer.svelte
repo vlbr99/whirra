@@ -9,7 +9,7 @@
     }, 500);
   };
   let code = $state(`
-  <footer class="footer">
+  <footer>
     <div class="footer-content">
       <a href="#" class="logo">Logo</a>
       <nav class="footer-nav">
@@ -22,7 +22,7 @@
     </div>
   </footer>
   <style>
-   .footer {
+   footer {
     background-color: var(--touch_color_dark);
     padding: 2rem 0;
     width: 100%;
@@ -95,7 +95,7 @@
     resources. It serves as the concluding section of a website, offering users
     additional guidance and support.
   </p>
-  <footer class="footer">
+  <footer>
     <div class="footer-content">
       <a href="#" class="logo">Logo</a>
       <nav class="footer-nav">
@@ -158,7 +158,7 @@
   h1 {
     color: white;
   }
-  .footer {
+  footer {
     background-color: var(--touch_color_dark);
     padding: 2rem 0;
     width: 100%;

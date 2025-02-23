@@ -1,8 +1,9 @@
 <script>
   let { button_text } = $props();
   import Buttons from "./Buttons.svelte";
+  import Gb from "./Gb.svelte";
   import Plus from "lucide-svelte/icons/plus";
-
+  import Wi from "./Wi.svelte";
   import { Highlight } from "svelte-highlight";
   import { javascript } from "svelte-highlight/languages";
   import { copy } from "svelte-copy";
@@ -16,9 +17,9 @@
 
   let code = $state(`
 <script>
-let { button_text } = $props();
+let { text, onclick } = $props();
 <\/script>
-<button class="button">{button_text}</button>
+<button class="button" {onclick}>{text}</button>
 <style>
   .button {
     background-color: var(--secondary_color_dark);
@@ -32,12 +33,14 @@ let { button_text } = $props();
     border-radius: 50px;
   }
 <\/style>`);
-  let code_2 = $state(`<Button button_text="Button" />`);
+  let code_2 = $state(
+    `<Button text="Button" onclick={()=>{alert("Clicked!!!")}}/>`
+  );
   let code_3 = $state(`
 <script>
-let { button_text } = $props();
+let { text, onclick } = $props();
 <\/script>
-<button class="ghost_button">{button_text}</button>
+<button class="ghost_button" {onclick}>{text}</button>
 <style>
   .ghost_button {
     background-color: transparent;
@@ -53,16 +56,18 @@ let { button_text } = $props();
     border-radius: 40px;
   }
 <\/style>`);
-  let code_4 = $state(`<Button button_text="Ghost Button" />`);
+  let code_4 = $state(
+    `<Button text="Ghost Button" onclick={()=>{alert("Clicked!!!")}}/>`
+  );
   let code_5 = $state(`
 <script>
-  let { button_text, icon: Icon } = $props();
+  let { text, icon: Icon,onclick } = $props();
 <\/script>
-<button class="icon_button">
+<button class="icon_button" onclick={()=>{alert("Clicked!!!")}}>
   {#if Icon}
     <Icon />
   {/if}
-  {button_text}</button
+  {text}</button
 >
 <style>
 .icon_button {
@@ -82,7 +87,8 @@ let { button_text } = $props();
   }
 <\/style>
   `);
-  let code_6 = $state(`<Button button_text="With icon" icon={Plus} />
+  let code_6 =
+    $state(`<Button text="With icon" icon={Plus} onclick={()=>{alert("Clicked!!!")}}/>
   //icon from lucide`);
 </script>
 
@@ -95,12 +101,25 @@ let { button_text } = $props();
     allowing users to initiate tasks such as saving data, navigating to another
     page, or performing a specific function.
   </p>
-  <button class="button">Button</button>
-  <button class="ghost_button">Ghost Button</button>
-  <button class="icon_button">
-    <Plus />
-    With icon
-  </button>
+  <Buttons
+    text="Button"
+    onclick={() => {
+      alert("Clicked!!!");
+    }}
+  />
+  <Gb
+    text="Ghost Button"
+    onclick={() => {
+      alert("Clicked!!!");
+    }}
+  />
+  <Wi
+    text="With icon"
+    icon={Plus}
+    onclick={() => {
+      alert("Clicked!!!");
+    }}
+  />
   <div class="code_wrapper">
     <h1>Usage</h1>
     <p>button</p>

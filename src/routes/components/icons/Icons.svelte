@@ -28,6 +28,10 @@
   import Bookmark from "lucide-svelte/icons/bookmark";
   import Github from "lucide-svelte/icons/github";
   import MessageCircle from "lucide-svelte/icons/message-circle";
+  import Search from "lucide-svelte/icons/search";
+  import LogIn from "lucide-svelte/icons/log-in";
+  import LogOut from "lucide-svelte/icons/log-out";
+
   import X from "lucide-svelte/icons/x";
 
   import { copy } from "svelte-copy";
@@ -141,6 +145,33 @@
       <button
         onclick={copy_it}
         use:copy={`import Copy from 'lucide-svelte/icons/copy';`}
+        >Copy code</button
+      >
+    </div>
+    <div>
+      <Search />
+      <p>import Search from 'lucide-svelte/icons/search';</p>
+      <button
+        onclick={copy_it}
+        use:copy={`import Search from 'lucide-svelte/icons/search';`}
+        >Copy code</button
+      >
+    </div>
+    <div>
+      <LogIn />
+      <p>import LogIn from 'lucide-svelte/icons/log-in';</p>
+      <button
+        onclick={copy_it}
+        use:copy={`import LogIn from 'lucide-svelte/icons/log-in';`}
+        >Copy code</button
+      >
+    </div>
+    <div>
+      <LogOut />
+      <p>import LogOut from 'lucide-svelte/icons/log-out';</p>
+      <button
+        onclick={copy_it}
+        use:copy={`import LogOut from 'lucide-svelte/icons/log-out';`}
         >Copy code</button
       >
     </div>
