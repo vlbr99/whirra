@@ -23,6 +23,7 @@
     "@fontsource-variable/outfit": "^5.1.1",
     "@fontsource/roboto": "^5.1.1",
     "@splidejs/svelte-splide": "^0.2.9",
+    "@vercel/analytics": "^1.5.0",
     "lucide-svelte": "^0.474.0",
     "sass-embedded": "^1.83.4",
     "svelte-confetti": "^2.3.1",
