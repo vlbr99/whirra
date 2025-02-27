@@ -13,10 +13,11 @@
 
   let code = $state(`
   <script>
-       let { postfooter_text } = $props();
+    let { text, className } = $props();
+    export {className as class}
   <\/script>
-   <div class="postfooter">
-    <p>{postfooter_text}</p>
+  <div class="postfooter {className}">
+    <p>{text}</p>
   </div>
   <style>
   .postfooter {
@@ -29,8 +30,7 @@
     color: var(--secondary_color_dark);
   }
 <\/style>`);
-  let code_2 =
-    $state(`<PostFooter postfooter_text="Whirra - 2025. All rights reserved"/>
+  let code_2 = $state(`<PostFooter text="Whirra - 2025. All rights reserved"/>
 `);
 </script>
 

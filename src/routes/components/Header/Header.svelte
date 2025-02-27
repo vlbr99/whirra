@@ -9,21 +9,25 @@
     }, 500);
   };
   let code = $state(`
-  <header>
-    <nav>
-      <div class="logo">
-        <a href="index.html">Logo</a>
-      </div>
-      <input type="checkbox" id="menu-toggle" />
-      <label for="menu-toggle" class="menu-icon">&#9776;</label>
-      <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Connect</a></li>
-      </ul>
-    </nav>
-  </header>
+<script>
+  let { className } = $props();
+  export {className as class}
+</\script>
+<header class={className}>
+   <nav>
+     <div class="logo">
+       <a href="index.html">Logo</a>
+     </div>
+     <input type="checkbox" id="menu-toggle" />
+     <label for="menu-toggle" class="menu-icon">&#9776;</label>
+     <ul class="menu">
+       <li><a href="#">Home</a></li>
+       <li><a href="#">Skills</a></li>
+       <li><a href="#">Projects</a></li>
+       <li><a href="#">Connect</a></li>
+     </ul>
+   </nav>
+</header>
   <style>
     header {
     position: sticky;

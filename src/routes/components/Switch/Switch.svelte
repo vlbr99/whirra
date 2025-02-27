@@ -12,10 +12,11 @@
   };
   let code = $state(`
 <script>
-  let { label, checked = $bindable(false), onChange } = $props();
+  let { label, checked = $bindable(false), onChange, className } = $props();
+  export { className as class };
 <\/script>
 
-<div class="switch_component">
+<div class="switch_component {className}">
   <p>{label}</p>
   <label class="switch">
     <input type="checkbox" bind:checked onchange={onChange} />
@@ -54,10 +55,7 @@
   .slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-color: var(--touch_color_dark);
     transition: 0.4s;
   }

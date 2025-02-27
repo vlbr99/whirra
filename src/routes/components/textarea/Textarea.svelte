@@ -11,11 +11,12 @@
   };
   let code = $state(`
 <script>
-  let {textarea_placeholder} = $props()
+  let { placeholder, className, value = $bindable() } = $props();
+  export { className as class };
 <\/script>
-<textarea class="textarea" placeholder={textarea_placeholder}></textarea>
+<textarea class={className} {placeholder} bind:value></textarea>
 <style>
-  .textarea {
+   textarea {
     resize: vertical;
     color: var(--secondary_color_dark);
     background-color: transparent;
@@ -23,11 +24,15 @@
     border-radius: 8px;
     padding: 5px 10px;
   }
-  .textarea:focus {
+  textarea:focus {
     outline: 1px solid var(--secondary_color_dark);
   }
 <\/style>`);
-  let code_2 = $state(`<Textarea textarea_placeholder="textarea"/>`);
+  let code_2 = $state(`
+<script>
+  let textarea_value = $state("")
+<\/script>
+<Textarea placeholder="textarea" bind:value={textarea_value}/>`);
 </script>
 
 <div class="textarea_wrapper">

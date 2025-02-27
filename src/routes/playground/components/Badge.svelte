@@ -1,9 +1,9 @@
 <script>
-  let { badge_text, className } = $props();
+  let { text, className } = $props();
   export { className as class };
 </script>
 
-<span class="badge {className}">{badge_text}</span>
+<span class="badge {className}">{text}</span>
 
 <style>
   .badge {

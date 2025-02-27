@@ -19,7 +19,8 @@
   };
   let code = $state(`
   <script>
-  let { options, value, placeholder } = $props();
+  let { options, value, placeholder, className } = $props();
+  export { className as class };
   let allOptions = $state([]);
 
   $effect(() => {
@@ -32,7 +33,7 @@
   });
 <\/script>
 
-<div class="select_wrapper">
+<div class="select_wrapper {className}">
   <select bind:value class="select_component">
     {#each allOptions as option}
       <option value={option.value}>{option.label}</option>
@@ -47,8 +48,7 @@
     justify-content: center;
     flex-direction: column;
     gap: 20px;
-    max-width: 650px;
-    width: 100%;
+    width: min(100%, 650px);
   }
   .select_component {
     appearance: none;
@@ -74,16 +74,21 @@
   `);
   let code_2 = $state(`
   <script>
-      const options = $state([
+    const options = $state([
     { value: "1", label: "Option 1" },
     { value: "2", label: "Option 2" },
     { value: "3", label: "Option 3" },
   ]);
+  let selectedValue = $state("0")
   <\/script>
 <Select
-  {options}
-  bind:value={selectedValue}
-  placeholder="Choose an option"
+    {options}
+    bind:value={selectedValue}
+    placeholder="Choose an option"
+    onchange={(e) => {
+      selectedValue = e.target.value;
+      console.log(selectedValue);
+    }}
 />`);
 </script>
 

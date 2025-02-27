@@ -20,54 +20,51 @@
   let code = $state(`
 <script>
   import { slide } from "svelte/transition";
-  let { items } = $props();
+  let { items, className } = $props();
+  export { className as class };
   let activeIndex = $state(-1);
   function toggleItem(index) {
     activeIndex = activeIndex === index ? -1 : index;
   }
 <\/script>
-<div class="accordion">
-    {#each items as item, index}
-      <div class="accordion-item">
-        <button
-          class="accordion-header"
-          onclick={() => toggleItem(index)}
-          aria-expanded={activeIndex === index}
-        >
-          {item.title}
-          <span class="icon">{activeIndex === index ? "−" : "+"}</span>
-        </button>
-        {#if activeIndex === index}
-          <div class="accordion-content" transition:slide>
-            {item.content}
-          </div>
-        {/if}
-      </div>
-    {/each}
+<div class="accordion {className}">
+  {#each items as item, index}
+    <div class="accordion-item">
+      <button
+        class="accordion-header"
+        onclick={() => toggleItem(index)}
+        aria-expanded={activeIndex === index}
+      >
+        {item.title}
+        <span class="icon">{activeIndex === index ? "-" : "+"}</span>
+      </button>
+      {#if activeIndex === index}
+        <div class="accordion-content" transition:slide>
+          {item.content}
+        </div>
+      {/if}
+    </div>
+  {/each}
 </div>
 <style>
   .accordion {
-    width: 100%;
-    max-width: 650px;
+    width: min(100%, 650px);
   }
-
   .accordion-item {
     border: 1px solid var(--touch_color_dark);
     margin-bottom: -1px;
     overflow: hidden;
   }
-
   .accordion-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     padding: 1rem;
     background-color: var(--touch_color_dark);
     border: none;
     text-align: left;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     color: var(--secondary_color_dark);
   }
   .accordion-item:last-child {
@@ -79,11 +76,9 @@
   .accordion-header:hover {
     background-color: var(--secondary_touch_color_dark);
   }
-
   .icon {
     font-size: 1.2rem;
   }
-
   .accordion-content {
     padding: 1rem;
     background-color: var(--secondary_touch_color_dark);
@@ -93,11 +88,11 @@
 `);
   let code_2 = $state(`
 <script>
-  const accordionItems = [
+  const accordionItems = $state([
     { title: "Section 1", content: "Content for section 1" },
     { title: "Section 2", content: "Content for section 2" },
     { title: "Section 3", content: "Content for section 3" },
-  ];
+]);
 <\/script>
 
 <Accordion items={accordionItems} />`);
@@ -120,7 +115,7 @@
           aria-expanded={activeIndex === index}
         >
           {item.title}
-          <span class="icon">{activeIndex === index ? "−" : "+"}</span>
+          <span class="icon">{activeIndex === index ? "-" : "+"}</span>
         </button>
         {#if activeIndex === index}
           <div class="accordion-content" transition:slide>

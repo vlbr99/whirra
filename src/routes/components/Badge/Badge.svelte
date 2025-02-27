@@ -12,10 +12,10 @@
   };
   import typescript from "svelte-highlight/languages/typescript";
   let code = $state(`<script>
- let { badge_text, className } = $props();
+ let { text, className } = $props();
  export { className as class };
 <\/script>
-<span class="badge {className}">{badge_text}</span>
+<span class="badge {className}">{text}</span>
 <style>
   .badge {
     background-color: var(--secondary_color_dark);
@@ -26,7 +26,7 @@
   }
 <\/style>
 `);
-  let co = $state(`<Badge badge_text='badge'/>`);
+  let co = $state(`<Badge text='badge'/>`);
 </script>
 
 <div class="badge_wrapper">

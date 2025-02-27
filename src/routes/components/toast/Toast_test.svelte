@@ -25,8 +25,8 @@
   <script>
   import { fade, fly } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
-  let { message } = $props();
-
+  let { message, className } = $props();
+  export {className as class};
   const dispatch = createEventDispatcher();
 
   function close() {
@@ -35,7 +35,7 @@
 <\/script>
 
 {#if message}
-  <div class="toast" transition:fly={{ y: 50, duration: 300 }} fade>
+  <div class="toast {className}" transition:fly={{ y: 50, duration: 300 }} fade>
     <p>{message}</p>
     <button onclick={close}>×</button>
   </div>

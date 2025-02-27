@@ -1,8 +1,9 @@
 <script>
-  let { text, description, icon: Icon } = $props();
+  let { text, description, icon: Icon, className } = $props();
+  export { className as class };
 </script>
 
-<div class="mini_card">
+<div class="mini_card {className}">
   <div class="mini_card_header">
     {#if Icon}
       <Icon />

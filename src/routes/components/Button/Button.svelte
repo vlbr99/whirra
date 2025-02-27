@@ -7,6 +7,7 @@
   import { Highlight } from "svelte-highlight";
   import { javascript } from "svelte-highlight/languages";
   import { copy } from "svelte-copy";
+  import "./btn.scss";
 
   let copy_it = (e) => {
     e.target.textContent = "Copied";
@@ -17,9 +18,10 @@
 
   let code = $state(`
 <script>
-let { text, onclick } = $props();
+let { text, onclick, className } = $props();
+  export { className as class };
 <\/script>
-<button class="button" {onclick}>{text}</button>
+<button class="button {className}" {onclick}>{text}</button>
 <style>
   .button {
     background-color: var(--secondary_color_dark);
@@ -38,9 +40,10 @@ let { text, onclick } = $props();
   );
   let code_3 = $state(`
 <script>
-let { text, onclick } = $props();
+let { text, onclick, className } = $props();
+export { className as class };
 <\/script>
-<button class="ghost_button" {onclick}>{text}</button>
+<button class="ghost_button {className}" {onclick}>{text}</button>
 <style>
   .ghost_button {
     background-color: transparent;
@@ -61,9 +64,10 @@ let { text, onclick } = $props();
   );
   let code_5 = $state(`
 <script>
-  let { text, icon: Icon,onclick } = $props();
+  let { text, icon: Icon,onclick, className } = $props();
+  export { className as class };
 <\/script>
-<button class="icon_button" onclick={()=>{alert("Clicked!!!")}}>
+<button class="icon_button {className}" onclick={()=>{alert("Clicked!!!")}}>
   {#if Icon}
     <Icon />
   {/if}
@@ -102,6 +106,7 @@ let { text, onclick } = $props();
     page, or performing a specific function.
   </p>
   <Buttons
+    className="test"
     text="Button"
     onclick={() => {
       alert("Clicked!!!");

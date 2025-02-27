@@ -15,7 +15,6 @@
     padding: 10px 20px;
   }
   .ghost_button:hover {
-    background-color: var(--primary_color_dark);
     border-radius: 40px;
   }
 </style>

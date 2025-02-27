@@ -1,6 +1,6 @@
 <script>
   import Cb2 from "./Cb2.svelte";
-  let isAgreed = $state(false);
+  let agree = $state(false);
 
   import { Highlight } from "svelte-highlight";
   import { javascript } from "svelte-highlight/languages";
@@ -14,10 +14,11 @@
   };
 
   let code = $state(`<script>
-  let { checked, label } = $props();
+  let { checked, label, className } = $props();
+  export {className as class}
 <\/script>
 
-<label class="checkbox">
+<label class="checkbox {className}">
   <input type="checkbox" bind:checked />
   <span>{label}</span>
 </label>
@@ -34,7 +35,11 @@
     margin-right: 5px;
   }
 <\/style>`);
-  let code_2 = $state(`<Checkbox bind:checked={isAgreed} label="I agree" />`);
+  let code_2 = $state(`
+<script>
+    let agree = $state(false);
+<\/script>
+  <Checkbox bind:checked={agree} label="I agree" />`);
 </script>
 
 <div class="cb_wrapper">
@@ -44,7 +49,7 @@
     options from a list. It is commonly used in forms, settings, and filters
     where multiple selections are needed.
   </p>
-  <Cb2 bind:checked={isAgreed} label="I agree" />
+  <Cb2 bind:checked={agree} label="I agree" />
   <div class="code_wrapper">
     <h1>Usage</h1>
     <div class="hl">

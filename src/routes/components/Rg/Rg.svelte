@@ -19,13 +19,14 @@
     }, 500);
   };
   let code = $state(`<script>
-let { options, name, value = $bindable("") } = $props();
+let { options, name, value = $bindable(""), className } = $props();
+  export { className as class };
   function handleChange(event) {
     value = event.target.value;
   }
 <\/script>
 
-<form class="radio_group">
+<form class="radio_group {className}">
   {#each options as option}
     <div class="radio_option">
       <input

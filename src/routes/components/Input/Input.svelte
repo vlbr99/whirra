@@ -11,24 +11,28 @@
   };
   let code = $state(`
 <script>
-  let {input_placeholder, input_type} = $props()
+   let { placeholder, type, className, value = $bindable() } = $props();
+  export { className as class };
 <\/script>
-<input class="input" placeholder={input_placeholder} type={input_type} />
+<input class={className} {placeholder} {type} bind:value />
 <style>
-  .input {
+  input {
     border: 1px solid var(--touch_color_dark);
     background-color: transparent;
     color: var(--secondary_color_dark);
     padding: 10px;
     border-radius: 5px;
   }
-  .input:focus {
+  input:focus {
     outline: 1px solid var(--secondary_color_dark);
   }
 <\/style>`);
-  let code_2 = $state(
-    `<Input input_placeholder="Input text" input_type="text"/>`
-  );
+  let code_2 = $state(`
+<script>
+  let input_value = $state("")
+<\/script>
+<Input placeholder="input text" type="text" bind:value={input_value}/>
+  `);
 </script>
 
 <div class="input_wrapper">

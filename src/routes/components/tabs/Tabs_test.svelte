@@ -19,7 +19,8 @@
 
   let code = $state(`
   <script>
-  let { tabs } = $props();
+  let { tabs, className } = $props();
+  export { className as class };
   let activeTab = $state(0);
 
   function selectTab(index) {
@@ -27,7 +28,7 @@
   }
 </\script>
 
-<div class="tabs-container">
+<div class="tabs-container {className}">
   <div class="tabs-header">
     {#each tabs as tab, index}
       <button
@@ -50,9 +51,8 @@
   </div>
 </div>
 <style>
-   .tabs-container {
-    width: 100%;
-    max-width: 650px;
+  .tabs-container {
+    width:min(100%, 650px);
   }
 
   .tabs-header {

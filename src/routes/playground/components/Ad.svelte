@@ -1,26 +1,36 @@
 <script>
-  let { isOpen, title, message, onConfirm, onCancel, children, className } =
-    $props();
+  let {
+    isOpen,
+    title,
+    message,
+    onConfirm,
+    onCancel,
+    children,
+    className,
+    b1_text,
+    b2_text,
+  } = $props();
+  export { className as class };
 </script>
 
 {#if isOpen}
   <div class="backdrop">
-    <div class="dialog">
+    <div class="dialog {className}">
       <h2>{title}</h2>
       <p>{message}</p>
-      {@render children?.()}
+      {@render children()}
       <div class="actions">
         <button
           onclick={() => {
             onCancel();
             isOpen = false;
-          }}>Cancel</button
+          }}>{b1_text}</button
         >
         <button
           onclick={() => {
             onConfirm();
             isOpen = false;
-          }}>OK</button
+          }}>{b2_text}</button
         >
       </div>
     </div>

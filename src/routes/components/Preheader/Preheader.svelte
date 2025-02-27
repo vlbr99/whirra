@@ -12,10 +12,11 @@
   };
   let code = $state(`
   <script>
-       let { preheader_text } = $props();
-  <\/script>
-   <div class="preheader">
-    <p>{preheader_text}</p>
+       let { text, className } = $props();
+       export {className as class}
+   <\/script>
+   <div class="preheader {className}">
+    <p>{text}</p>
   </div>
   <style>
   .preheader {
@@ -29,7 +30,7 @@
   }
 <\/style>`);
   let code_2 =
-    $state(`<Preheader preheader_text="Default preheader content - customize as needed."/>
+    $state(`<Preheader text="Default preheader content - customize as needed."/>
 `);
 </script>
 

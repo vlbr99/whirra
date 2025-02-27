@@ -27,16 +27,26 @@
   };
   let code = $state(`
 <script>
-    let { isOpen, title, message, onConfirm, onCancel, children } = $props();
+  let {
+    isOpen,
+    title,
+    message,
+    onConfirm,
+    onCancel,
+    children,
+    className,
+    b1_text,
+    b2_text,
+  } = $props();
+  export { className as class };
 <\/script>
 
 {#if isOpen}
-  <div
-    class="backdrop">
-    <div
-      class="dialog">
+  <div class="backdrop">
+    <div class="dialog {className}">
       <h2>{title}</h2>
       <p>{message}</p>
+      {@render children()}
       <div class="actions">
         <button
           onclick={() => {
@@ -56,7 +66,7 @@
 {/if}
 
 <style>
-  .backdrop {
+    .backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -75,12 +85,11 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 400px;
-    text-align: center;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
 
   .actions {
@@ -108,12 +117,10 @@
   `);
   let code_2 = $state(`
 <script>
-let showDialog = $state(false);
-
+  let showDialog = $state(false);
   function handleConfirm() {
     showDialog = false;
   }
-
   function handleCancel() {
     showDialog = true;
   }
@@ -123,8 +130,11 @@ let showDialog = $state(false);
     }
   });
 <\/script>
+<button onclick={()=>{showDialog = true}}>Open Alert</button>
 {#if showDialog}
   <Alert
+    b1_text="Cancel"
+    b2_text="OK"
     bind:isOpen={showDialog}
     title="Delete Item"
     message="Are you sure you want to delete this item?"

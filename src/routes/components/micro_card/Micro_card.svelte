@@ -15,10 +15,11 @@
 
   let code = $state(`
 <script>
-  let { text, icon: Icon } = $props();
+  let { text, icon: Icon,className } = $props();
+  export {className as class}
 <\/script>
 
-<div class="micro_card">
+<div class="micro_card {className}">
   {#if Icon}
     <Icon />
   {/if}
@@ -36,7 +37,7 @@
     gap: 10px;
   }
   .micro_card p {
-    color: var(--primary_bg_dark);
+    color: var(--primary_color_dark);
   }
 <\/style>`);
   let code_2 = $state(`<MicroCard text="Micro Card" icon={PackagePlus} />

@@ -73,31 +73,27 @@
       >Copy code</button
     >
   </div>
-  <div>
-    <p>
-      In 'src/routes' folder create +layout.svelte file and paste the code below
-    </p>
-    <div class="code">
+  <p>
+    In 'src/routes' folder create +layout.svelte file and paste the code below
+  </p>
+  <div class="code_wrapper">
+    <div class="hl">
       <button onclick={copy_it} use:copy={code}>Copy code</button>
-      <Highlight {code} language={javascript} />
+      <Highlight language={javascript} {code} />
     </div>
   </div>
-  <div>
+  <div class="code_wrapper">
     <p>In root folder create .env file</p>
-    <div class="code">
-      <button onclick={copy_it} use:copy={env}>Copy code</button>
-      <Highlight code={env} language={javascript} />
+    <div class="code_wrapper">
+      <div class="hl">
+        <button onclick={copy_it} use:copy={env}>Copy code</button>
+        <Highlight language={javascript} code={env} />
+      </div>
     </div>
   </div>
 </div>
 
 <style>
-  .code {
-    background-color: #18181b;
-    border-radius: 20px;
-    padding: 20px;
-    margin-top: 10px;
-  }
   .install_wrapper {
     display: flex;
     align-items: flex-start;
@@ -106,6 +102,13 @@
     gap: 20px;
     width: 100%;
     max-width: 650px;
+  }
+  .install_wrapper div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2px;
   }
   h1 {
     color: white;
@@ -125,14 +128,17 @@
     gap: 20px;
     border-radius: 20px;
     display: block;
-    width: 100%;
-    max-width: 650px;
+    position: relative;
+    width: 100% !important;
+    max-width: 650px !important;
   }
   .hl {
     margin-top: 20px;
     background-color: #18181b;
     border-radius: 20px;
+    width: 100%;
   }
+
   button {
     background-color: white;
     color: black;
@@ -141,6 +147,8 @@
     padding: 5px;
     width: 80px;
     cursor: pointer;
-    float: right;
+  }
+  .hl button {
+    margin-left: auto;
   }
 </style>

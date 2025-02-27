@@ -40,8 +40,7 @@
     accessibility and usability by providing clear pathways to relevant content.
   </p>
   <a href="https://example.com" target="_blank">example.com</a>
-  <!-- ZA FRAMEWORK JE U KOMENTARU -->
-  <!-- <a href={a_href}>{a_text}</a> -->
+
   <div class="code_wrapper">
     <h1>Usage</h1>
     <div class="hl">

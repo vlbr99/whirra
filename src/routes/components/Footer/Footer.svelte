@@ -9,8 +9,11 @@
     }, 500);
   };
   let code = $state(`
-  <footer>
-    <div class="footer-content">
+  <script>
+  let { className } = $props();
+  export {className as class}
+</\script>
+  <footer class={className}>
       <a href="#" class="logo">Logo</a>
       <nav class="footer-nav">
         <ul>
@@ -19,69 +22,50 @@
           <li><a href="#">Contact</a></li>
         </ul>
       </nav>
-    </div>
   </footer>
   <style>
-   footer {
+footer {
     background-color: var(--touch_color_dark);
-    padding: 2rem 0;
+    padding: 15px;
     width: 100%;
-  }
-
-  .footer-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    justify-content: space-between;
   }
 
   .logo {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin: 0;
     text-decoration: none;
     color: var(--secondary_color_dark);
   }
 
-  .footer-nav ul {
+  .footer_nav ul {
     display: flex;
     list-style-type: none;
-    padding: 0;
-    margin: 0;
   }
 
-  .footer-nav li {
-    margin-left: 1.5rem;
+  .footer_nav li {
+    margin-left: 10px;
   }
 
-  .footer-nav a {
+  .footer_nav a {
     color: var(--light_touch_color_dark);
     text-decoration: none;
   }
 
-  .footer-nav a:hover {
-    text-decoration: underline;
-  }
-
   @media (max-width: 768px) {
-    .footer-content {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
     .logo {
       margin-bottom: 1rem;
     }
 
-    .footer-nav ul {
+    .footer_nav ul {
       flex-direction: column;
     }
 
-    .footer-nav li {
-      margin: 0.5rem 0;
+    .footer_nav li {
+      margin: 10px 0;
     }
   }
 </\style>`);
@@ -96,16 +80,14 @@
     additional guidance and support.
   </p>
   <footer>
-    <div class="footer-content">
-      <a href="#" class="logo">Logo</a>
-      <nav class="footer-nav">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Support</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+    <a href="#" class="logo">Logo</a>
+    <nav class="footer_nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
   </footer>
   <div class="code_wrapper">
     <h1>Usage</h1>
@@ -160,64 +142,46 @@
   }
   footer {
     background-color: var(--touch_color_dark);
-    padding: 2rem 0;
+    padding: 15px;
     width: 100%;
-  }
-
-  .footer-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    justify-content: space-between;
   }
 
   .logo {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin: 0;
     text-decoration: none;
     color: var(--secondary_color_dark);
   }
 
-  .footer-nav ul {
+  .footer_nav ul {
     display: flex;
     list-style-type: none;
-    padding: 0;
-    margin: 0;
   }
 
-  .footer-nav li {
-    margin-left: 1.5rem;
+  .footer_nav li {
+    margin-left: 10px;
   }
 
-  .footer-nav a {
+  .footer_nav a {
     color: var(--light_touch_color_dark);
     text-decoration: none;
   }
 
-  .footer-nav a:hover {
-    text-decoration: underline;
-  }
-
   @media (max-width: 768px) {
-    .footer-content {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
     .logo {
       margin-bottom: 1rem;
     }
 
-    .footer-nav ul {
+    .footer_nav ul {
       flex-direction: column;
     }
 
-    .footer-nav li {
-      margin: 0.5rem 0;
+    .footer_nav li {
+      margin: 10px 0;
     }
   }
 </style>
