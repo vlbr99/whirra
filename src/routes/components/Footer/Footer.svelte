@@ -15,7 +15,7 @@
 </\script>
   <footer class={className}>
       <a href="#" class="logo">Logo</a>
-      <nav class="footer-nav">
+      <nav class="footer_nav">
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#">Support</a></li>

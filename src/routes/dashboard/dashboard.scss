@@ -73,7 +73,12 @@
   color: white;
   text-align: center;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
+  main {
+    padding: 0 20px;
+  }
+}
+@media (max-width: 800px) {
   .menu_toggle {
     display: block !important;
   }
