@@ -72,10 +72,10 @@
     alert: AlertTest,
   };
 
-  let currentComponent = Install;
+  let CurrentComponent = $state(Install);
 
   function selectComponent(key) {
-    currentComponent = components[key];
+    CurrentComponent = components[key];
   }
 </script>
 
@@ -355,9 +355,7 @@
   </aside>
 
   <main>
-    {#if currentComponent}
-      <svelte:component this={currentComponent} />
-    {/if}
+        <CurrentComponent />
   </main>
 </div>
 <div class="resp">
